@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import logo from "./logo.svg";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
@@ -12,14 +13,14 @@ function App() {
   return (
     <div>
       <Header/>
-      <Switch>
-        <Route exact path="/">
-          <LandingPage/>
-        </Route>
-        <Route path="/pokemon/:name">
-          <PokemonDetails />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route exact path="/">
+            <LandingPage/>
+          </Route>
+          <Route path="/pokemon/:name">
+            <PokemonDetails />
+          </Route>
+        </Switch>
     </div>
   );
 }

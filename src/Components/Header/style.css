@@ -1,0 +1,19 @@
+.header-title {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    padding-top: 1px;
+    background-color: #61dafb;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.header-title :hover {
+    cursor: pointer;
+}
+
+.header-title img {
+    width: 30vh;
+    padding: 10px;
+}
