@@ -6,23 +6,26 @@ import './index.css'
 
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Header from "./Components/Header/Header";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import PokemonDetails from "./Components/PokemonDetailPage/PokemonDetails";
 
-function App() {
-  return (
-    <div>
-      <Header/>
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Header/>
         <Switch>
           <Route exact path="/">
             <LandingPage/>
           </Route>
           <Route path="/pokemon/:name">
-            <PokemonDetails />
+            <PokemonDetails/>
           </Route>
         </Switch>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 

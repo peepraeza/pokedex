@@ -2,9 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import './style.css'
 import CardDetail from "../CardDetail/CardDetail";
-import {getEvolution, loadPokemonDetail, loadPokemonLanding} from "../../services/pokemon.service";
+import {getEvolution, loadPokemonDetail} from "../../services/pokemon.service";
 import {Spinner} from "react-bootstrap";
-import PokemonCard from "../PokemonCard/PokemonCard";
 
 export default function PokemonDetails() {
   const params = useParams();

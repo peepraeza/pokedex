@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 .all-container {
     display: flex;
@@ -11,6 +12,7 @@
     justify-content: center;
     margin: 10px auto;
     max-width: 1200px;
+    font-family: 'Josefin Sans', serif;
 }
 
 .pokemon-container :hover {

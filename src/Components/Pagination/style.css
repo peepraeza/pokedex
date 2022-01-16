@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 .pagination-btn-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    font-family: 'Josefin Sans', serif;
 }
 .pagination-btn-container button {
     color: rgb(22, 22, 22);

@@ -2,7 +2,6 @@ import React from 'react'
 import './style.css'
 import './color.css'
 import {useHistory} from "react-router-dom";
-// import '../../../public/pokeball_logo.png'
 
 export default function PokemonCard({id, name, image, types}) {
   const style = types[0].type.name + " thumb-container";
