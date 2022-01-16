@@ -1,13 +1,52 @@
-import React from 'react';
-import {useLocation} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import {useParams} from "react-router-dom";
+import './style.css'
+import CardDetail from "../CardDetail/CardDetail";
+import {getEvolution, loadPokemonDetail, loadPokemonLanding} from "../../services/pokemon.service";
+import {Spinner} from "react-bootstrap";
+import PokemonCard from "../PokemonCard/PokemonCard";
 
 export default function PokemonDetails() {
-  const location = useLocation();
-  const name = location.state.name;
+  const params = useParams();
+  const name = params.name;
+  const [loading, setLoading] = useState(true)
+  const [types, setTypes] = useState([])
+  const [stats, setStats] = useState('')
+  const [weight, setWeight] = useState('')
+  const [height, setHeight] = useState('')
+  const [image, setImage] = useState('')
+  const [abilities, setAbilities] = useState([])
+  const [evolution, setEvolution] = useState([])
+
+  useEffect(async () => {
+    setLoading(true)
+    const data = await loadPokemonDetail(name)
+    setStats(data.stats)
+    setTypes(data.types)
+    setWeight(data.weight)
+    setImage(data['sprites']['other']['official-artwork']['front_default'])
+    setHeight(data.height)
+    setAbilities(data.abilities);
+    const evolutionList = await getEvolution(data.species.url)
+    setEvolution(evolutionList)
+    setLoading(false)
+  }, [])
 
   return (
-    <div>
-      <p>{name}</p>
+    <div className={'all-container'}>
+      {loading ? <Spinner animation="grow"/> : (
+        <CardDetail
+          name={name}
+          image={image}
+          height={height}
+          weight={weight}
+          abilities={abilities}
+          evolution={evolution}
+          types={types}
+          stats={stats}
+        />
+      )
+      }
     </div>
   )
 }

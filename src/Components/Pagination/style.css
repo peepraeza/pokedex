@@ -1,0 +1,16 @@
+.pagination-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.pagination-btn-container button {
+    color: rgb(22, 22, 22);
+    padding: .5rem;
+    margin: 1rem;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.185);
+    width: 100px;
+    font-size: large;
+}
