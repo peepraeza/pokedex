@@ -6,8 +6,8 @@ import './index.css'
 
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Header from "./Components/Header/Header";
-import {Route, Switch} from "react-router-dom";
-import PokemonDetails from "./Components/PokemonDetailPage/PokemonDetails";
+import {Redirect, Route, Switch} from "react-router-dom";
+import PokemonDetailPage from "./Components/PokemonDetailPage/PokemonDetailPage";
 
 
 class App extends Component {
@@ -19,8 +19,11 @@ class App extends Component {
           <Route exact path="/">
             <LandingPage/>
           </Route>
-          <Route path="/pokemon/:name">
-            <PokemonDetails/>
+          <Route exact path="/pokemon/:name">
+            <PokemonDetailPage/>
+          </Route>
+          <Route path='*' exact={true}>
+            <Redirect to="/" /> : <LandingPage />
           </Route>
         </Switch>
       </div>

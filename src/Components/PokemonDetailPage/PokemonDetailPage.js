@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import './style.css'
 import CardDetail from "../CardDetail/CardDetail";
 import {getEvolution, loadPokemonDetail} from "../../services/pokemon.service";
 import {Spinner} from "react-bootstrap";
 
-export default function PokemonDetails() {
+export default function PokemonDetailPage() {
   const params = useParams();
   const name = params.name;
+
   const [loading, setLoading] = useState(true)
   const [types, setTypes] = useState([])
   const [stats, setStats] = useState('')
@@ -33,7 +34,7 @@ export default function PokemonDetails() {
 
   return (
     <div className={'all-container'}>
-      {loading ? <Spinner animation="grow"/> : (
+      {loading ? <Spinner className={'spinner'} animation="grow"/> : (
         <CardDetail
           name={name}
           image={image}

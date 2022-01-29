@@ -1,3 +1,17 @@
+.evolution-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.evolution-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1000px;
+    text-transform: capitalize;
+}
+
 .pokemon-evo {
     display: flex;
     flex-direction: column;
@@ -5,10 +19,13 @@
     text-align: center;
 }
 
-
 .pokemon-evo img {
-    width: 200px;
-    height: 200px;
-    margin: 20px;
+    width: 150px;
+    height: 150px;
 }
+
+.pokemon-evo h5 {
+    margin-top: 10px;
+}
+
 

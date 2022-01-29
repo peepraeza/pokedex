@@ -3,16 +3,18 @@ import {loadPokemonLanding} from "../../services/pokemon.service";
 import Pagination from "../Pagination/Pagination";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import './style.css'
-import {Button, Col, Row, Spinner} from "react-bootstrap";
+import {Spinner} from "react-bootstrap";
+import {useDispatch, useSelector} from "react-redux";
 
-function LandingPage() {
-  const [currentPageUrl, setCurrentPageUrl] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=100"
-  );
+export default function LandingPage() {
+  const currentPath = useSelector(state => state.CurrentUrlPath);
+  const [currentPageUrl, setCurrentPageUrl] = useState(currentPath);
   const [prevPageUrl, setPrevPageUrl] = useState("");
   const [nextPageUrl, setNextPageUrl] = useState("");
   const [allPokemon, setAllPokemon] = useState([]);
   const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch();
+
 
   useEffect(async () => {
     setLoading(true)
@@ -29,36 +31,53 @@ function LandingPage() {
   }, [currentPageUrl]);
 
   function gotoPrevPageUrl() {
+
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: prevPageUrl
+    })
     setCurrentPageUrl(prevPageUrl);
   }
 
   function gotoNextPageUrl() {
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: nextPageUrl
+    })
     setCurrentPageUrl(nextPageUrl);
   }
 
   return (
-      <div className='all-container'>
-        <Pagination
-          gotoPrevPageUrl={gotoPrevPageUrl}
-          gotoNextPageUrl={gotoNextPageUrl}
-        />
-        <div className="pokemon-container">
-          {loading ? <Spinner animation="grow"/> : allPokemon.map((pokemonStats, index) =>
-            <PokemonCard
-              key={index}
-              id={pokemonStats.id}
-              image={pokemonStats['sprites']['other']['official-artwork']['front_default']}
-              name={pokemonStats.name}
-              types={pokemonStats.types}
-            />)}
-        </div>
-
-        <Pagination
-          gotoPrevPageUrl={gotoPrevPageUrl}
-          gotoNextPageUrl={gotoNextPageUrl}
-        />
+    <div className='all-container'>
+      <div>
+        {
+          loading ? <Spinner className={'spinner'} animation="grow"/> :
+            <ContainerLanding allPokemon={allPokemon}
+                              gotoNextPageUrl={gotoNextPageUrl}
+                              gotoPrevPageUrl={gotoPrevPageUrl}
+            />
+        }
       </div>
+    </div>
   );
 }
 
-export default LandingPage;
+function ContainerLanding({allPokemon, gotoPrevPageUrl, gotoNextPageUrl}) {
+  return (
+    <div className="pokemon-container">
+      {allPokemon.map((pokemonStats, index) => {
+        return <PokemonCard
+          key={index}
+          id={pokemonStats.id}
+          image={pokemonStats['sprites']['other']['official-artwork']['front_default']}
+          name={pokemonStats.name}
+          types={pokemonStats.types}
+        />
+      })}
+      <Pagination
+        gotoPrevPageUrl={gotoPrevPageUrl}
+        gotoNextPageUrl={gotoNextPageUrl}
+      />
+    </div>
+  )
+}
