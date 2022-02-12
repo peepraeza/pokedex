@@ -3,6 +3,9 @@
 https://peewich-pokedex.herokuapp.com/
 ![image](https://user-images.githubusercontent.com/23741875/153714557-867b8a9c-96ef-473a-90ea-1217fce0a44e.png)
 
+![image](https://user-images.githubusercontent.com/23741875/153714598-4de9c131-529e-44df-b412-cead39e89c82.png)
+
+
 
 ## Available Scripts
 
