@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# pokedex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://peewich-pokedex.herokuapp.com/
+![image](https://user-images.githubusercontent.com/23741875/153714557-867b8a9c-96ef-473a-90ea-1217fce0a44e.png)
+
 
 ## Available Scripts
 
@@ -68,4 +70,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# pokedex
+
