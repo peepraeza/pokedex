@@ -42,10 +42,10 @@ function DetailInfo({image, weight, height, name, abilities, types, data}) {
         <div className={'detail-name'}>
           <h4>Name: {name}</h4>
         </div>
-        <div className={'pokemon-name'}>
+        <div className={'pokemon-height'}>
           <h4>Height: {convertHeightToMeter(height)} M.</h4>
         </div>
-        <div className={'pokemon-name'}>
+        <div className={'pokemon-weight'}>
           <h4>Weight: {convertWeightToKilo(weight)} Kg.</h4>
         </div>
         <div className={'ability-container'}>
@@ -54,7 +54,7 @@ function DetailInfo({image, weight, height, name, abilities, types, data}) {
             return <h4 key={idx}>{(idx ? ', ' : '\xA0') + ability.ability.name}</h4>
           })}
         </div>
-        <div className={'ability-container'}>
+        <div className={'type-container'}>
           <h4>Type: </h4>
           {types.map((type, idx) => {
             return <h4 key={idx}>{(idx ? ', ' : '\xA0') + type.type.name}</h4>

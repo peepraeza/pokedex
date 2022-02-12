@@ -33,7 +33,7 @@ export default function PokemonDetailPage() {
   }, [])
 
   return (
-    <div className={'all-container'}>
+    <div className={'all-container-detail'}>
       {loading ? <Spinner className={'spinner'} animation="grow"/> : (
         <CardDetail
           name={name}
