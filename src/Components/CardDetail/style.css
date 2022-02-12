@@ -33,6 +33,8 @@
     flex-wrap: wrap;
     flex-direction: column;
     margin: 10px 15px 0 15px;
+    max-width: 350px;
+    justify-content: space-around;
 }
 
 .detail-name {

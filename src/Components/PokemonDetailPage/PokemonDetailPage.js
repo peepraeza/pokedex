@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useHistory, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import './style.css'
 import CardDetail from "../CardDetail/CardDetail";
 import {getEvolution, loadPokemonDetail} from "../../services/pokemon.service";

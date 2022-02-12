@@ -31,8 +31,6 @@ export default function CardDetail({name, image, types, height, abilities, evolu
 }
 
 function DetailInfo({image, weight, height, name, abilities, types, data}) {
-  console.log(data);
-
   return (
     <div className={'detail-info-wrapper'}>
       <div className={'detail-img'}>
@@ -51,13 +49,17 @@ function DetailInfo({image, weight, height, name, abilities, types, data}) {
         <div className={'ability-container'}>
           <h4>Ability: </h4>
           {abilities.map((ability, idx) => {
-            return <h4 key={idx}>{(idx ? ', ' : '\xA0') + ability.ability.name}</h4>
+            const count = abilities.length;
+            const lastText = idx === count - 1 ? '' : ','
+            return <h4 key={idx}>{'\xA0' + ability.ability.name + lastText}</h4>
           })}
         </div>
         <div className={'type-container'}>
           <h4>Type: </h4>
           {types.map((type, idx) => {
-            return <h4 key={idx}>{(idx ? ', ' : '\xA0') + type.type.name}</h4>
+            const count = types.length;
+            const lastText = idx === count - 1 ? '' : ','
+            return <h4 key={idx}>{'\xA0' + type.type.name + lastText}</h4>
           })}
         </div>
       </div>
@@ -111,7 +113,6 @@ const createStatData = (stats) => {
     'hp': 'HP'
   }
   stats.forEach(stat => {
-    console.log(stat)
     const data = {}
     data['key'] = statMapping[stat.stat.name] ? statMapping[stat.stat.name] : stat.stat.name
     data['value'] = stat['base_stat'];
